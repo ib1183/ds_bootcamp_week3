@@ -13,7 +13,8 @@ print(df.groupby('day_name')['Pedestrians'].sum())
 weekday_df = df[((df['day_name']!= 'Saturday') & (df['day_name'] != 'Sunday'))]
 
 plt.figure(figsize=(12, 6))
-plt.plot(weekday_df['day_name'], weekday_df.groupby('day_name')['Pedestrians'].sum(), color='blue')
+#plt.plot(weekday_df['day_name'], weekday_df['Pedestrians'], color='blue')
+weekday_df.groupby('day_name')['Pedestrians'].sum().plot()
 plt.title('Pedestrian Counts Over Time')
 plt.xlabel('Day of Week')
 plt.ylabel('Pedestrian Count')
